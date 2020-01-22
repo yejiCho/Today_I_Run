@@ -73,10 +73,3 @@ IronPython(.NET Framework), Brython(JavaScript)
 
 
 ```
-
-# Pypi란 무엇인가?
-
-```
-
-
-```
