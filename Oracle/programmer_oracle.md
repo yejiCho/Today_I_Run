@@ -206,3 +206,19 @@ FROM        ANIMAL_INS
 ORDER BY    ANIMAL_ID
 
 ```
+
+# JOIN
+
+# [프로그래머스 - 없어진기록](https://programmers.co.kr/learn/courses/30/lessons/59042?language=oracle)
+
+```sql
+
+SELECT  B.ANIMAL_ID, B.NAME
+FROM    ANIMAL_INS  A   
+RIGHT OUTER JOIN    ANIMAL_OUTS B
+ON  (A.ANIMAL_ID = B.ANIMAL_ID)
+WHERE   A.ANIMAL_ID IS NULL
+ORDER BY    B.ANIMAL_ID
+;
+
+```
