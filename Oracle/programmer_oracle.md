@@ -213,12 +213,53 @@ ORDER BY    ANIMAL_ID
 
 ```sql
 
-SELECT  B.ANIMAL_ID, B.NAME
-FROM    ANIMAL_INS  A   
+SELECT      B.ANIMAL_ID, B.NAME
+FROM        ANIMAL_INS  A   
 RIGHT OUTER JOIN    ANIMAL_OUTS B
-ON  (A.ANIMAL_ID = B.ANIMAL_ID)
-WHERE   A.ANIMAL_ID IS NULL
+ON          (A.ANIMAL_ID = B.ANIMAL_ID)
+WHERE       A.ANIMAL_ID IS NULL
 ORDER BY    B.ANIMAL_ID
 ;
+
+```
+
+# [프로그래머스 - 있었는데요 없었습니다.]()
+
+```sql
+-- 보호 시작일 보다 입양일이 더 빠른 동물의 아이디와 이름을 조회하는 QL문 작성
+-- 결과는 보호 시작일이 빠른순
+-- a쿼리와 b쿼리의 동물아이디는 같지만 a.DATETIME이 더빠른 것 추출
+
+SELECT      a.ANIMAL_ID, a.NAME
+FROM        ANIMAL_INS  a, ANIMAL_OUTS  b
+WHERE       a.ANIMAL_ID = b.ANIMAL_ID
+AND         a.DATETIME  > b.DATETIME
+ORDER BY    a.DATETIME
+;
+
+```
+
+# []()
+
+```sql
+
+-- SELECT a.name, a.datetime
+-- FROM animal_ins a
+-- LEFT OUTER JOIN animal_outs b on (a.animal_id = b.animal_id)
+-- WHERE b.animal_id is NULL
+-- AND    ROWNUM <= 3
+-- ORDER BY a.datetime
+-- ;
+
+-- SELECT NAME, DATETIME 
+-- FROM ANIMAL_INS A 
+-- WHERE A.ANIMAL_ID NOT IN (
+--                             SELECT B.ANIMAL_ID 
+--                             FROM ANIMAL_OUTS B ) 
+-- AND ROWNUM <= 3
+-- ORDER BY A.DATETIME
+-- ;
+
+
 
 ```
