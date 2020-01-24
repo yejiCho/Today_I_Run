@@ -173,6 +173,21 @@ ORDER BY    NAME
 
 ```
 
+# [프로그래머스 - 입양 시각 구하기(1)](https://programmers.co.kr/learn/courses/30/lessons/59412)
+
+```sql
+
+
+SELECT  TO_CHAR(DATETIME, 'HH24') AS HOUR, COUNT(DATETIME) AS COUNT
+FROM    ANIMAL_OUTS
+WHERE   TO_CHAR(DATETIME, 'HH24') >= 9 AND TO_CHAR(DATETIME, 'HH24') <= 19
+GROUP BY TO_CHAR(DATETIME, 'HH24')
+ORDER BY    HOUR
+;
+
+```
+
+
 # IS NULL
 
 # [프로그래머스 - 이름이 없는 동물의 아이디](https://programmers.co.kr/learn/courses/30/lessons/59039?language=oracle)
@@ -353,5 +368,34 @@ from
     animal_ins
 order by animal_id
 ;
+
+```
+
+
+# [프로그래머스 - 오랜 기간 보호한 동물 (2)](https://programmers.co.kr/learn/courses/30/lessons/59411)
+
+
+```sql
+
+SELECT  *
+FROM    (SELECT  A.ANIMAL_ID, A.NAME
+        FROM    ANIMAL_INS A, ANIMAL_OUTS B
+        WHERE   A.ANIMAL_ID = B.ANIMAL_ID
+        ORDER BY   B.DATETIME - A.DATETIME  DESC
+        )
+WHERE   ROWNUM <= 2
+;
+
+```
+
+# [프로그래머스 - DATETIME에서 DATE로 형 변환](https://programmers.co.kr/learn/courses/30/lessons/59414)
+
+```sql
+
+
+SELECT ANIMAL_ID, NAME , TO_CHAR(DATETIME, 'YYYY-MM-DD' )AS 날짜
+FROM    ANIMAL_INS
+ORDER BY ANIMAL_ID
+
 
 ```
