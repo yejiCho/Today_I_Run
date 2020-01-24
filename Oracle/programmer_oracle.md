@@ -239,9 +239,19 @@ ORDER BY    a.DATETIME
 
 ```
 
-# []()
+# [오랜 기간 보호한 동물](https://programmers.co.kr/learn/courses/30/lessons/59044)
 
 ```sql
+
+--ORACLE은 3개까지 추출하기위해서 SELECT절로감싸줘야함
+SELECT  *
+FROM    (SELECT A.NAME  , A.DATETIME
+        FROM    ANIMAL_INS  A
+        LEFT    OUTER JOIN  ANIMAL_OUTS B
+        ON  A.ANIMAL_ID = B.ANIMAL_ID
+        WHERE   B.DATETIME IS NULL
+        ORDER BY A.DATETIME)
+WHERE   ROWNUM <= 3
 
 -- SELECT a.name, a.datetime
 -- FROM animal_ins a
