@@ -41,3 +41,22 @@ def solution(s):
 
 
 ```
+
+# [백준알고리즘-사칙연산](https://www.acmicpc.net/problem/10869)
+
+```python
+
+a,b = input().split()
+
+a = int(a)
+b = int(b)
+
+print(a+b)
+print(a-b)
+print(a*b)
+print(int(a/b))
+print(a%b)
+
+
+
+```
