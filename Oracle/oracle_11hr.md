@@ -55,3 +55,28 @@ ORDER BY    AVG(E.SALARY) ASC
 
 
 ```
+
+```sql
+
+3. 'Public Accountant'의 직책(job_title)으로 과거에 근무한 적이 있는 모든 사원의 사번과 이름을 출력하시오.
+(현재 'Public Accountant'의 직책(job_title)으로 근무하는 사원은 고려하지 않는다.)
+이름은 first_name, last_name을 아래의 실행결과와 같이 출력한다.
+
+SELECT	A.FIRST_NAME, A.LAST_NAME
+FROM		EMPLOYEES	A, JOBS	B, JOB_HISTORY C
+WHERE		A.JOB_ID = B.JOB_ID
+AND			B.JOB_ID = C.JOB_ID
+AND			B.JOB_TITLE = 'Public Accountant'
+WHERE		JOB_TITLE = 'Public Accountant'
+;
+
+-- CONCAT: 문자합치기
+SELECT  E.EMPLOYEE_ID, CONCAT(CONCAT(E.FIRST_NAME,''),E.LAST_NAME)
+FROM    EMPLOYEES E, JOBS  J, JOB_HISTORY H
+WHERE   J.JOB_TITLE = 'Public Accountant'
+AND     H.JOB_ID = J.JOB_ID
+AND     E.EMPLOYEE_ID = H.EMPLOYEE_ID
+;
+
+
+```
