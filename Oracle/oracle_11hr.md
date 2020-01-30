@@ -14,17 +14,17 @@
 
 1.  직책(job title)이 Sales Manager인 사원들의 입사년도와 입사년도(hire_date)별 평균급여를 출력하시오. 출력시 년도를 기준으로 오름차순 정렬
 
-SELECT  TO_CHAR(HIRE_DATE 'YYYY') , AVG(SALARY)
-FROM    EMPLOYEES   A, JOBS B
-WHERE   A.JOB_ID = B.JOB_ID
-AND     B.JOB_TITLE = 'Sales Manager'
+SELECT      TO_CHAR(HIRE_DATE 'YYYY') , AVG(SALARY)
+FROM        EMPLOYEES   A, JOBS B
+WHERE       A.JOB_ID = B.JOB_ID
+AND         B.JOB_TITLE = 'Sales Manager'
 GROUP BY    HIRE_DATE
 ORDER BY    HIRE_DATE
 
-SELECT  TO_CAHR(E.HIRE_DATE, 'YYYY'), AVG(E.SALARY)
-FROM    EMPLOYEES   E, JOBS J
-WHERE   E.JOB_ID = J.JOB_ID
-AND     J.JOB_TITLE = 'Sales Manager'
+SELECT      TO_CAHR(E.HIRE_DATE, 'YYYY'), AVG(E.SALARY)
+FROM        EMPLOYEES   E, JOBS J
+WHERE       E.JOB_ID = J.JOB_ID
+AND         J.JOB_TITLE = 'Sales Manager'
 GROUP BY    TO_CHAR(E.HIRE_DATE, 'YYYY')
 ORDER BY    TO_CHAR(E.HIRE_DATE, 'YYYY')
 
