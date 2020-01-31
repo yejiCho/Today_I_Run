@@ -19,7 +19,7 @@
 
 num = 0
 def contact_program(num):
-    list_private_info = []
+    # list_private_info = []
     list_public_info = []
     public_info = {}
     while num != 5:

@@ -38,7 +38,7 @@ def vartest1(a):
     a = a+1
     return a
 
-a = vartest(a)
+a = vartest1(a)
 print(a)
 
 

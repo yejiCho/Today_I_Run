@@ -31,3 +31,23 @@
 #     elif num == 2:
 
 #         print("총 %d")
+
+# def say():
+#     print('hi')
+
+# def prt():
+
+#     say()
+
+# def say(num):
+#     prompt = '''
+#     test_version
+#     '''
+#     print(prompt)
+#     num = str(input("숫자를 입력하세요."))
+
+
+
+# def ptr():
+#     num = say(num)
+        
