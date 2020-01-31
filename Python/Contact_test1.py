@@ -33,12 +33,12 @@ def input_inforamtion():
 list_public_info = []
 public_info = {}
 def contact_active():
-    num = ''
-    while num:
+    num = 0
+    while num != 5:
         print(contact_main())
-        num = str(input("숫자를 입력하세요"))    
+        num = int(input("숫자를 입력하세요"))    
         
-        if num == '1':
+        if num == 1:
             print(input_inforamtion())
 
     return num
