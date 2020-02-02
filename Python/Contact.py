@@ -18,10 +18,10 @@
 #     """
 
 num = 0
+public_info = {}
 def contact_program(num):
     # list_private_info = []
-    list_public_info = []
-    public_info = {}
+
     while num != 5:
         # main()
 
@@ -37,8 +37,7 @@ def contact_program(num):
             private_info['gubun'] = gubun
 
             public_info[phone_num] = private_info
-            list_public_info.append(public_info)
-            # print(private_info)
+
         elif num == 2:
             # i = 1
 
@@ -54,36 +53,62 @@ def contact_program(num):
         elif num == 3:
 
             rename = str(input("수정할 회원 이름을 적으세요"))
-            for i in public_info:
-                # n = 0
-                # for n in range(len(public_info)):
+
+            keys = list(public_info.keys())
+            # print(keys)
+            for i in keys:
+
                 if rename == public_info[i]['name']:
-                    rename_list = public_info[i]['name'] + public_info[i]['phone_num'] + public_info[i]['gubun']
-                    print(rename_list)
+                    # print(i[0])
+                    print(str(keys.index(i)+1) +"."+ str(public_info[i]['name']+public_info[i]['phone_num']+public_info[i]['gubun']))
 
-            # for n in range(len()):
 
-            # for n in range(len(public_info)):
-            #     print(public_info)
-            #     print(str(n+1)+rename_list)
+            renum = int(input("수정할 회원의 번호를 입력하세요"))
 
-            re_num = int(input("수정할 회원의 번호를 입력하세요"))
+            for i in keys:
+                if renum-1 == (keys.index(i)):
 
-            private_info = {}
-            name = str(input("이름을 입력하세요."))
-            phone_num = str(input("전화번호를 입력하세요."))
-            gubun = str(input("관계를 입력하세요"))
+                    del public_info[i]
 
-            private_info['name'] = name
-            private_info['phone_num'] = phone_num
-            private_info['gubun'] = gubun
+                    private_info = {}
+                    name = str(input("이름을 입력하세요."))
+                    phone_num = str(input("전화번호를 입력하세요."))
+                    gubun = str(input("관계를 입력하세요"))
 
-            public_info[phone_num] = private_info
+                    private_info['name'] = name
+                    private_info['phone_num'] = phone_num
+                    private_info['gubun'] = gubun
 
+                    public_info[phone_num] = private_info
+
+            print(public_info)
 
         elif num == 4:
 
             delname = str(input("삭제할 회원 이름을 적으세요."))
+
+            keys = list(public_info.keys())
+            # print(keys)
+            for i in keys:
+
+                if delname == public_info[i]['name']:
+                    # print(i[0])
+                    print(str(keys.index(i) + 1) + "." + str(
+                        public_info[i]['name'] + public_info[i]['phone_num'] + public_info[i]['gubun']))
+                else:
+                    print("없는 이름입니다.")
+
+            delnum = input("삭제할 번호를 적으세요.")
+
+            for i in keys:
+                if int(delnum)-1 == (keys.index(i)):
+
+                    del public_info[i]
+
+
+            print(public_info)
+            print("삭제되었습니다.")
+
 
         elif num == 5:
             print("종료하겠습니다.")
