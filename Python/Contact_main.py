@@ -11,8 +11,9 @@ while True:
 
     if num == '1':
 
-        phone_num, private_info = Contact_program.contact_program()
-        public_info[phone_num] = private_info
+        private_info = Contact_program.contact_program()
+        if private_info:
+            public_info[private_info['phone_num']] = private_info
         # print(public_info)
 
     elif num == '2':

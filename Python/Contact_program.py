@@ -22,20 +22,54 @@ def contact_program():
     # f =
 
     print("등록할 회원의 정보를 입력하세요.")
-    name = str(input("이름: "))
-    phone_number = str(input("전화번호 (ex: 01012345678):"))
-    classification = str(input("구분 (ex: 가족, 친구, 기타):"))
+    name = input("이름: ").strip()
+    phone_number = input("전화번호 (ex: 01012345678):").strip()
+    classification = input("구분 (ex: 가족, 친구,회사, 기타):").strip()
+
+    classifications = ['가족','친구','회사','기타']
+    # phone_numbers = ['0','1','2','3','4','5','6','7','8','9''\n']
+
+    # for s in phone_number:
+    #     if s not in phone_numbers:
+    #         print("잘못된 전화번호 입력입니다.")
+
+            # return {}
+
+    if name == '':
+        print("잘못된 이름입니다.")
+        return {}
+
+    for s in phone_number:
+        if s not in str(range(10)):
+            print("잘못된 전화번호 입력입니다.")
+
+            return {}
+
+    if phone_number == '':
+        print("잘못된 전화번호 입력입니다.")
+
+        return {}
+
+    if classification not in classifications:
+        print("잘못된 구분 입력입니다.")
+
+        return {}
+
+    if classification == '':
+        print("잘못된 구분 입력입니다.")
+
+        return {}
 
 
     private_information = { 'name' : name , 'phone_num' : phone_number , 'classification': classification}
 
-    return phone_number, private_information
+    return private_information
 
 
 def check_information(public_info):
 
     # phone_number , private_information = contact_program()
-    input_name = str(input())
+    input_name = input()
 
     keys = list(public_info.keys())
     list_input_name = []
@@ -60,7 +94,7 @@ def check_information(public_info):
 
 def del_information(public_info):
 
-    renum = str(input())
+    renum = input()
 
     keys = list(public_info.keys())
 
