@@ -1,99 +1,116 @@
-# def private_info(**kwargs):
-#
-#     return kwargs
-
-# def main():
-
-#     prompt = """
-#     =============================
-#     다음 메뉴 중 하나를 선택하세요.
-#     =============================
-#     1. 회원추가
-#     2. 회원 목록 보기
-#     3. 회원 목록 수정하기
-#     4. 회원 삭제하기
-#     5. 종료하기
-
-#     Enter number :
-#     """
-
-num = 0
-def contact_program(num):
-    list_private_info = []
-    list_public_info = []
-    public_info = {}
-    while num != 5:
-        # main()
-
-        num = int(input("번호를 입력하세요."))
-        if num == 1:
-            private_info = {}
-            name = str(input("이름을 입력하세요."))
-            phone_num = str(input("전화번호를 입력하세요."))
-            gubun = str(input("관계를 입력하세요"))
-            
-            private_info['name'] = name
-            private_info['phone_num'] = phone_num
-            private_info['gubun'] = gubun
-
-            public_info[phone_num] = private_info
-            list_public_info.append(public_info)
-            # print(private_info)
-        elif num == 2:
-            # i = 1
-
-            print("총 %d명의 회원이 저장되어 있습니다."%len(public_info))
-            for i in public_info:
-                # i = i+1
-                # print(i)
-                print(public_info[i]['name']+public_info[i]['phone_num']+public_info[i]['gubun'])
-
-            # ("수정할 회원의 번호를 입력해주세요.")
-                # print(list_public_info[i])
-
-        elif num == 3:
-
-            rename = str(input("수정할 회원 이름을 적으세요"))
-            for i in public_info:
-                # n = 0
-                # for n in range(len(public_info)):
-                if rename == public_info[i]['name']:
-                    rename_list = public_info[i]['name'] + public_info[i]['phone_num'] + public_info[i]['gubun']
-                    print(rename_list)
-
-            # for n in range(len()):
-
-            # for n in range(len(public_info)):
-            #     print(public_info)
-            #     print(str(n+1)+rename_list)
-
-            re_num = int(input("수정할 회원의 번호를 입력하세요"))
-
-            private_info = {}
-            name = str(input("이름을 입력하세요."))
-            phone_num = str(input("전화번호를 입력하세요."))
-            gubun = str(input("관계를 입력하세요"))
-
-            private_info['name'] = name
-            private_info['phone_num'] = phone_num
-            private_info['gubun'] = gubun
-
-            public_info[phone_num] = private_info
+import pickle
 
 
-        elif num == 4:
+def main():
 
-            delname = str(input("삭제할 회원 이름을 적으세요."))
+    prompt = """
+    ===========================
+    다음 메뉴 중 하나를 선택하세요.
+    ============================
+    1. 회원 추가
+    2. 회원 목록 보기
+    3. 회원 목록 수정하기
+    4. 회원 삭제하기
+    5. 종료하기
 
-        elif num == 5:
-            print("종료하겠습니다.")
-            break
+    """
+    print(prompt)
+
+
+def contact_program():
+
+    # f =
+
+    print("등록할 회원의 정보를 입력하세요.")
+    name = input("이름: ").strip()
+    phone_number = input("전화번호 (ex: 01012345678):").strip()
+    classification = input("구분 (ex: 가족, 친구,회사, 기타):").strip()
+
+    classifications = ['가족','친구','회사','기타']
+    # phone_numbers = ['0','1','2','3','4','5','6','7','8','9''\n']
+
+    # for s in phone_number:
+    #     if s not in phone_numbers:
+    #         print("잘못된 전화번호 입력입니다.")
+
+            # return {}
+
+    if name == '':
+        print("잘못된 이름입니다.")
+        return {}
+
+    for s in phone_number:
+        if s not in str(range(10)):
+            print("잘못된 전화번호 입력입니다.")
+
+            return {}
+
+    if phone_number == '':
+        print("잘못된 전화번호 입력입니다.")
+
+        return {}
+
+    if classification not in classifications:
+        print("잘못된 구분 입력입니다.")
+
+        return {}
+
+    if classification == '':
+        print("잘못된 구분 입력입니다.")
+
+        return {}
+
+
+    private_information = { 'name' : name , 'phone_num' : phone_number , 'classification': classification}
+
+    return private_information
+
+
+def check_information(public_info):
+
+    # phone_number , private_information = contact_program()
+    input_name = input()
+
+    keys = list(public_info.keys())
+    list_input_name = []
+    for key in keys:
+
+        if input_name == public_info[key]['name']:
+            list_input_name.append(input_name)
+
+    print("총 %d 개의목록이 검색되었습니다." %len(list_input_name))
+
+    for key in keys:
+
+        if input_name == public_info[key]['name']:
+            # print("총 %d 개의 목록이 검색되었습니다." % len(input_name))
+            print(str(keys.index(key) + 1) + "." + "이름 = " +
+                public_info[key]['name'] + "전화번호 : " + public_info[key]['phone_num'] +" 구분: " +public_info[key]['classification'])
+
+    if input_name != public_info[key]['name']:
+
+        print("해당하는 회원의 정보가 없습니다.")
+
+
+def del_information(public_info):
+
+    renum = input()
+
+    keys = list(public_info.keys())
+
+    for key in keys:
+
+        if int(renum) - 1 == (keys.index(key)):
+
+            del public_info[key]
 
 
 
 
-# return num
 
-# num = contact_program(num)
-print(contact_program)
+
+
+
+
+
 
