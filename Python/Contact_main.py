@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import Contact_program
 import pickle
 
+=======
+
+# import Contact_pro
+import Contact_pro
+>>>>>>> b7eb326cc691a3e8dda03ae456b59cafd8740615
 num = ''
 public_info = {}
 # contact.txt 파일 load 
@@ -13,16 +19,25 @@ try:
 except:
     pass
 
+<<<<<<< HEAD
 while True:
     # 반복할 메뉴 불러오기
     Contact_program.main()
+=======
+    Contact_pro.main()
+>>>>>>> b7eb326cc691a3e8dda03ae456b59cafd8740615
 
     num = str(input("번호를 입력하세요."))
     # 1번일 경우
     if num == '1':
+<<<<<<< HEAD
         
         private_info = Contact_program.contact_program()
         # 만약 pivate_info가 존재하면 private_info 딕셔너리를 public_info에 넣어줌
+=======
+
+        private_info =  Contact_pro.contact_program()
+>>>>>>> b7eb326cc691a3e8dda03ae456b59cafd8740615
         if private_info:
             public_info[private_info['phone_num']] = private_info
         else:
@@ -39,13 +54,17 @@ while True:
 
         print("수정할 회원의 이름을 입력하세요.")
 
-        Contact_program.check_information(public_info)
+        Contact_pro.check_information(public_info)
 
         print("수정할 회원의 번호를 입력하세요.")
 
-        Contact_program.del_information(public_info)
+        Contact_pro.del_information(public_info)
 
+<<<<<<< HEAD
         private_info = Contact_program.contact_program()
+=======
+        phone_num, private_info =   Contact_pro.contact_program()
+>>>>>>> b7eb326cc691a3e8dda03ae456b59cafd8740615
 
         public_info[private_info['phone_num']] = private_info
 
@@ -55,11 +74,11 @@ while True:
 
         print("삭제할 회원의 이름을 입력하세요.")
 
-        Contact_program.check_information(public_info)
+        Contact_pro.check_information(public_info)
 
         print("삭제할 회원의 번호를 입력하세요.")
 
-        Contact_program.del_information(public_info)
+        Contact_pro.del_information(public_info)
 
         print("삭제되었습니다.")
 

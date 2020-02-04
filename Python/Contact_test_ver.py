@@ -55,7 +55,8 @@ def contact_active():
             for i in public_info:
                 if rename == public_info[i]['name']:
                     rename_list = public_info[i]['name'] + public_info[i]['phone_num']
-                 #   print(type(rename_list))
+                    print(type(rename_list))
+                    
                  
 
             
