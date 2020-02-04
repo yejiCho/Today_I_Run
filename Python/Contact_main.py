@@ -9,7 +9,7 @@ try:
     with open('contact.txt','rb') as f:
         data = pickle.load(f)
         public_info = data
-        print(data)
+        # print(data)
 except:
     pass
 
