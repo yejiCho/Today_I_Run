@@ -19,8 +19,6 @@ def main():
 
 def contact_program():
 
-    # f =
-
     print("등록할 회원의 정보를 입력하세요.")
     name = input("이름: ").strip()
     phone_number = input("전화번호 (ex: 01012345678):").strip()
