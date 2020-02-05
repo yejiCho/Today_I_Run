@@ -1,17 +1,19 @@
 
-# import Contact_pro
-import Contact_pro
+# import Contact_program
+import Contact_program
+# 입력받을 번호는 string으로 받는다.
 num = ''
+# public_info : 개인별 연락처 정보저장 딕셔너리
 public_info = {}
 while True:
 
-    Contact_pro.main()
+    Contact_program.main()
 
-    num = str(input("번호를 입력하세요."))
+    num = input("번호를 입력하세요.")
 
     if num == '1':
 
-        private_info =  Contact_pro.contact_program()
+        private_info =  Contact_program.contact_program()
         if private_info:
             public_info[private_info['phone_num']] = private_info
         # print(public_info)
@@ -27,26 +29,26 @@ while True:
         
         print("수정할 회원의 이름을 입력하세요.")
 
-        Contact_pro.check_information(public_info)
+        Contact_program.check_information(public_info)
 
         print("수정할 회원의 번호를 입력하세요.")
 
-        Contact_pro.del_information(public_info)
+        Contact_program.del_information(public_info)
 
-        phone_num, private_info =   Contact_pro.contact_program()
+        private_info = Contact_program.contact_program()
 
-        public_info[phone_num] = private_info
+        public_info[private_info['phone_num']] = private_info
 
 
     elif num == '4':
 
         print("삭제할 회원의 이름을 입력하세요.")
 
-        Contact_pro.check_information(public_info)
+        Contact_program.check_information(public_info)
 
         print("삭제할 회원의 번호를 입력하세요.")
 
-        Contact_pro.del_information(public_info)
+        Contact_program.del_information(public_info)
 
         print("삭제되었습니다.")
 
