@@ -204,4 +204,19 @@ def solution(seoul):
             answer = f'김서방은 {i}에 있다'
     return answer
 
+# 다른사람풀이
+# index : 'kim'있는 index위치 반환
+def solution(seoul):
+
+    return "김서방은 {}에 있다".format(seoul.index('Kim'))
+
+print(solution(['Jane','Kim']))
+
+# 응용
+def solution(seoul):
+
+    return f"김서방은 {seoul.index('Kim')}에 있다"
+
+print(solution(['Jane','Kim']))
+
 ```
