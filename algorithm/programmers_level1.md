@@ -140,4 +140,29 @@ print( numPY("Pyy") )
 
 ```
 
+# [프로그래머스 - 가운데 글자 가져오기](https://programmers.co.kr/learn/courses/30/lessons/12903)
+
+
+```python
+
+def solution(s):
+    answer = ''
+    mok = len(s)/2
+    mok = int(mok)
+    if len(s) % 2 == 0:
+        answer = s[mok-1:mok+1]
+    else:
+        answer = s[mok]
+    return answer
+
+
+# 다른사람 풀이
+
+def string_middle(str):
+
+    return str[(len(str)-1)//2:len(str)//2+1]
+
+
+print(string_middle("power"))
+```
 
