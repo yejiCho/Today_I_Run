@@ -40,9 +40,9 @@ while True:
 
         Contact_program.check_information(public_info)
 
-        print("수정할 회원의 번호를 입력하세요.")
+        # print("수정할 회원의 번호를 입력하세요.")
 
-        Contact_program.del_information(public_info)
+        # Contact_program.del_information(public_info)
 
         private_info = Contact_program.contact_program()
 
@@ -56,9 +56,9 @@ while True:
 
         Contact_program.check_information(public_info)
 
-        print("삭제할 회원의 번호를 입력하세요.")
+        # print("삭제할 회원의 번호를 입력하세요.")
 
-        Contact_program.del_information(public_info)
+        # Contact_program.del_information(public_info)
 
         print("삭제되었습니다.")
 

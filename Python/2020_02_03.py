@@ -41,8 +41,6 @@ class Calculator:
         self.result += num
         return self.result
 
-
-
 class Calculators:
     def __init__(self):
         self.result = 0
@@ -52,8 +50,6 @@ class Calculators:
         return self.result
 
 if __name__=="__main__":
-    cal1 = Calculator()
-    cal2 = Calculator()
-    cal3 = Calculators()
-    print(cal1(3))
-    print(cal1(5))
+    Calculators()
+
+    print(Calculators(3))
