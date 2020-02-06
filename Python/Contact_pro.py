@@ -84,7 +84,7 @@ def check_information(public_info):
             # print("총 %d 개의 목록이 검색되었습니다." % len(input_name))
             print(str(keys.index(key) + 1) + "." + "이름 = " +
                 public_info[key]['name'] + "전화번호 : " + public_info[key]['phone_num'] +" 구분: " +public_info[key]['classification'])
-
+        
     if input_name != public_info[key]['name']:
 
         print("해당하는 회원의 정보가 없습니다.")

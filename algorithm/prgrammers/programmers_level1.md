@@ -140,4 +140,98 @@ print( numPY("Pyy") )
 
 ```
 
+# [프로그래머스 - 가운데 글자 가져오기](https://programmers.co.kr/learn/courses/30/lessons/12903)
 
+
+```python
+
+def solution(s):
+    answer = ''
+    mok = len(s)/2
+    mok = int(mok)
+    if len(s) % 2 == 0:
+        answer = s[mok-1:mok+1]
+    else:
+        answer = s[mok]
+    return answer
+
+
+# 다른사람 풀이
+
+# /  : 나누기
+# // : 몫
+def string_middle(str):
+
+    return str[(len(str)-1)//2:len(str)//2+1]
+
+
+print(string_middle("power"))
+```
+
+# [프로그래머스 - 문자열 내 마음대로 정렬하기](https://programmers.co.kr/learn/courses/30/lessons/12915)
+
+
+```python
+
+# 1차실패
+
+def solution(strings, n):
+    answer = []
+    answers = []
+    # for i,list_string in enumerate(strings):
+    #     print(i,list_string)
+    for i,list_string in enumerate(strings):
+        answers.append(strings[i][n])
+        answers.sort()
+        if strings[i][n] == answers[n]:
+            answer.append(list_string)
+    print(answers)
+    print(answer)
+    return answer
+
+
+```
+
+
+# [프로그래머스 - 서울에서 김서방 찾기](https://programmers.co.kr/learn/courses/30/lessons/12919)
+
+```python
+
+def solution(seoul):
+    answer = ''
+    for i in range(len(seoul)):
+        if seoul[i] == 'Kim':
+            answer = f'김서방은 {i}에 있다'
+    return answer
+
+# 다른사람풀이
+# index : 'kim'있는 index위치 반환
+def solution(seoul):
+
+    return "김서방은 {}에 있다".format(seoul.index('Kim'))
+
+print(solution(['Jane','Kim']))
+
+# 응용
+def solution(seoul):
+
+    return f"김서방은 {seoul.index('Kim')}에 있다"
+
+print(solution(['Jane','Kim']))
+
+```
+
+# [프로그래머스 - 나누어 떨어지는 숫자배열](https://programmers.co.kr/learn/courses/30/lessons/12910)
+
+```python
+
+def solution(arr, divisor):
+    answer = []
+    for i in range(len(arr)):
+        if arr[i] % divisor == 0:
+            answer.append(arr[i])
+            answer.sort()
+    if answer == []: return [-1]
+    return answer
+
+```

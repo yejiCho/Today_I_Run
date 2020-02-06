@@ -2,6 +2,7 @@ import Contact_program
 import pickle
 
 num = ''
+# public_info : 개인별 연락처 정보저장 딕셔너리
 public_info = {}
 # contact.txt 파일 load 
 # contact.txt 파일이 empty하면 예외처리
@@ -14,22 +15,23 @@ except:
     pass
 
 while True:
-    # 반복할 메뉴 불러오기
     Contact_program.main()
 
-    num = str(input("번호를 입력하세요."))
-    # 1번일 경우
+    num = input("번호를 입력하세요.")
+
     if num == '1':
-        
-        private_info = Contact_program.contact_program()
-        # 만약 pivate_info가 존재하면 private_info 딕셔너리를 public_info에 넣어줌
+
+        private_info =  Contact_program.contact_program()
         if private_info:
             public_info[private_info['phone_num']] = private_info
         else:
             print("정보가 없습니다.")
 
     elif num == '2':
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1153993fbac6d5357de4161fb64481ef486ec02f
         # 저장되어있는 회원정보 불러오기
         print("총 %d 명의 회원이 저장되어 있습니다." %len(public_info))
 
@@ -42,9 +44,9 @@ while True:
 
         Contact_program.check_information(public_info)
 
-        print("수정할 회원의 번호를 입력하세요.")
+        # print("수정할 회원의 번호를 입력하세요.")
 
-        Contact_program.del_information(public_info)
+        # Contact_program.del_information(public_info)
 
         private_info = Contact_program.contact_program()
 
@@ -58,9 +60,9 @@ while True:
 
         Contact_program.check_information(public_info)
 
-        print("삭제할 회원의 번호를 입력하세요.")
+        # print("삭제할 회원의 번호를 입력하세요.")
 
-        Contact_program.del_information(public_info)
+        # Contact_program.del_information(public_info)
 
         print("삭제되었습니다.")
 
