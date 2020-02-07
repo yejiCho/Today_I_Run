@@ -28,11 +28,7 @@ while True:
             print("정보가 없습니다.")
 
     elif num == '2':
-<<<<<<< HEAD
-
-=======
->>>>>>> 1153993fbac6d5357de4161fb64481ef486ec02f
-        # 저장되어있는 회원정보 불러오기
+      # 저장되어있는 회원정보 불러오기
         print("총 %d 명의 회원이 저장되어 있습니다." %len(public_info))
 
         for phone_key in public_info:

@@ -1,4 +1,4 @@
-# 예외처리
+
 class ContentError(Exception):
     def __str__(self):
         return "허용되지 않는 입력입니다."
@@ -33,7 +33,6 @@ def main():
 
 # 1번. 연락처 정보등록
 def contact_program():
-
     # with open('contact.txt','wb') as f:
     # 이름, 전화번호, 구분 입력받아서 양쪽 공백제거한다
     print("등록할 회원의 정보를 입력하세요.")
@@ -63,7 +62,6 @@ def contact_program():
     private_information = { 'name' : name , 'phone_num' : phone_number , 'classification': classification}
 
     return private_information
-
 
 # 2번. 해당하는 이름의 연락처 불러오기
 def check_information(public_information):
