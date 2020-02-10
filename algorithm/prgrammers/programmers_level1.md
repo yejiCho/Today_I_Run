@@ -235,3 +235,66 @@ def solution(arr, divisor):
     return answer
 
 ```
+
+# [프로그래머스 - 같은숫자는 싫어](https://programmers.co.kr/learn/courses/30/lessons/12906)
+
+```python
+
+def solution(arr):
+    answer = []                # 빈 리스트 생성
+    for i in arr:              # arr안의 성분을 하나씩 돌면서
+        if answer[-1:] == [i]: # 마지막 원소와 i가 같으면
+            continue           # continue를 
+        else:                  # 마지막 원소와 i가 다르면 answer에 i를 넣어준다.
+            answer.append(i)
+    return answer
+
+
+# 다른 사람 풀이
+def no_continuous(s):
+    a = []
+    for i in s:
+        if a[-1:] == [i]: continue
+        a.append(i)
+    return a
+
+print(no_continuos("133303"))
+
+```
+
+# [프로그래머스 - 하샤드 수](https://programmers.co.kr/learn/courses/30/lessons/12947)
+
+
+```python
+
+# 첫번째 시도
+# x가 1이상, 1000이하인 정수인 제한조건을 확인 못함
+def solution(x):
+    answer = True
+    a = x // 10
+    b = x % 10
+    if x % (a+b) == 0: return answer
+    else: return False
+    # return answer if x % (a+b) == 0 return False
+
+```
+
+# [프로그래머스 - 하샤드 수](https://programmers.co.kr/learn/courses/30/lessons/12947)
+
+```python
+
+def solution(x):
+    answer = True
+    x = str(x)
+    a = 0
+    for i in range(len(x)):
+        a = a + int(x[i])
+    if int(x) % a == 0: return answer
+    else: return False
+
+# 다른사람풀이
+
+def Harshad(n):
+    return n % sum([int(c) for c in str(n)]) == 0
+
+```
