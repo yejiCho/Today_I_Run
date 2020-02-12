@@ -299,4 +299,92 @@ def Harshad(n):
 
 ```
 
-# [프로그래머스 - 핸드폰 번호 가리기](https://programmers.co.kr/learn/courses/30/lessons/1294
+# [프로그래머스 - 2016년](https://programmers.co.kr/learn/courses/30/lessons/12901)
+
+
+```python
+# datetime 모듈
+# datetime 패키지 에서는 날짜와 시간을 함께 저장하는 datetime클래스
+# 날짜만 저장하는 date클래스, 시간만 저장하는 time클래스
+# 시간 구간 정보를 저장하는 timedelta클래스 등을 제공
+# 날짜만을 관리할때 : datetime.date
+# d = datetime.date(2015,4,15)
+# weekday():요일 반환(0:월,1:화,2:수,3:목,4:금,5:토,6:일)
+import datetime
+def solution(a, b):
+
+    return ['MON','TUE','WED','THU','FRI','SAT','SUN'][datetime.date(2016,a,b).weekday()]
+
+# print(datetime.date(2016,a,b).weekday()) => 1
+# print(datetime.date(2016,a,b)) => 2016-05-24
+```
+
+# [프로그래머스 - 문자열 내림차순으로 배치하기]()
+
+```python
+def solution(s):
+    answers = []
+    answer = []
+    for i in range(len(sorted(s))):
+        if s[i].isupper():
+            answers.append(s[i])
+        else:
+            answer.append(s[i])
+    return "".join(sorted(answer, reverse=True) + sorted(answers,reverse=True))
+
+def solution(s):
+    
+    return "".join(sorted(list(s),reverse = True))
+
+# testcase
+print(solution('Zbcdefg'))
+print(solution('ZdksnFdkAfj'))
+print(solution('AacBDdBCeWdD'))
+# output    "gfebdcZ"
+# output    "snkkjfddZFA"
+# output    "eddcaWDDCBBA"
+
+```
+
+# [프로그래머스 - 문자열 내 마음대로 정렬하기](https://programmers.co.kr/learn/courses/30/lessons/12915)
+
+```python
+# operator 모듈 함수
+# itemgetter(), attrgetter()및 mathodcaller()함수가 존재
+from operator import itemgetter
+def solution(strings, n):
+    
+    strings.sort()
+    return sorted(strings, key=itemgetter(n))
+
+# shotcoding
+from operator import itemgetter
+def solution(strings, n):
+    
+    return sorted(sorted(strings), key=itemgetter(n))
+
+# 다른사람풀이
+def strange_sort(strings, n):
+
+    return sorted(strings, key=lambda x:x[n])
+# print
+strings = ["sun","bed","car"]
+print(strange_sort(strings, 1))
+
+```
+
+# [프로그래머스 - 제일 작은 수 제거하기](https://programmers.co.kr/learn/courses/30/lessons/12935)
+
+```python
+# 1차 실패
+# arr가 비어있거다 [10]일경우 answer에 -1 append함
+# 아닐경우에는 arr역순으로 정렬해서 마지막값 제외하고 return
+def solution(arr):
+    answer = []
+    if not arr or arr[0] == 10:
+        answer.append(-1)
+    else:
+        answer = sorted(arr, reverse=True)[0:-1]
+    return answer
+
+```
