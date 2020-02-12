@@ -331,9 +331,44 @@ def solution(s):
         else:
             answer.append(s[i])
     return "".join(sorted(answer, reverse=True) + sorted(answers,reverse=True))
-    
+
 def solution(s):
     
     return "".join(sorted(list(s),reverse = True))
+
+# testcase
+print(solution('Zbcdefg'))
+print(solution('ZdksnFdkAfj'))
+print(solution('AacBDdBCeWdD'))
+# output    "gfebdcZ"
+# output    "snkkjfddZFA"
+# output    "eddcaWDDCBBA"
+
+```
+
+# [프로그래머스 - 문자열 내 마음대로 정렬하기](https://programmers.co.kr/learn/courses/30/lessons/12915)
+
+```python
+# operator 모듈 함수
+# itemgetter(), attrgetter()및 mathodcaller()함수가 존재
+from operator import itemgetter
+def solution(strings, n):
+    
+    strings.sort()
+    return sorted(strings, key=itemgetter(n))
+
+# shotcoding
+from operator import itemgetter
+def solution(strings, n):
+    
+    return sorted(sorted(strings), key=itemgetter(n))
+
+# 다른사람풀이
+def strange_sort(strings, n):
+
+    return sorted(strings, key=lambda x:x[n])
+# print
+strings = ["sun","bed","car"]
+print(strange_sort(strings, 1))
 
 ```
