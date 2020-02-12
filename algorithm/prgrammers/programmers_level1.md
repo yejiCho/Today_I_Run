@@ -299,4 +299,22 @@ def Harshad(n):
 
 ```
 
-# [프로그래머스 - 핸드폰 번호 가리기](https://programmers.co.kr/learn/courses/30/lessons/1294
+# [프로그래머스 - 2016년](https://programmers.co.kr/learn/courses/30/lessons/12901)
+
+
+```python
+# datetime 모듈
+# datetime 패키지 에서는 날짜와 시간을 함께 저장하는 datetime클래스
+# 날짜만 저장하는 date클래스, 시간만 저장하는 time클래스
+# 시간 구간 정보를 저장하는 timedelta클래스 등을 제공
+# 날짜만을 관리할때 : datetime.date
+# d = datetime.date(2015,4,15)
+# weekday():요일 반환(0:월,1:화,2:수,3:목,4:금,5:토,6:일)
+import datetime
+def solution(a, b):
+
+    return ['MON','TUE','WED','THU','FRI','SAT','SUN'][datetime.date(2016,a,b).weekday()]
+
+# print(datetime.date(2016,a,b).weekday()) => 1
+# print(datetime.date(2016,a,b)) => 2016-05-24
+```
