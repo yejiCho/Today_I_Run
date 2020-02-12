@@ -6,13 +6,30 @@ num = ''
 public_info = {}
 # contact.txt 파일 load 
 # contact.txt 파일이 empty하면 예외처리
-try:
-    with open('contact.txt','rb') as f:
-        data = pickle.load(f)
-        public_info = data
-        # print(data)
-except:
-    pass
+
+class File:
+    def __init__(self,file_name):
+        self.file_name = file_name
+
+    def file_load(self):
+        try:
+            with open('contact.txt','rb') as f:
+                data = pickle.load(f)
+                public_info = data
+        except:
+            pass
+        return public_info
+
+    def file_write(self):
+        with open(self.file_name,'wb') as f:
+            data = public_info
+            pickle.dump(data,f)
+
+    
+
+file_name = "contact.txt"
+File = File(file_name)
+public_info = File.file_load()
 
 while True:
     Contact_program.main()
@@ -64,8 +81,7 @@ while True:
 
     elif num == '5':
         # 파일에 내용저장
-        with open('contact.txt','wb') as f:
-            pickle.dump(public_info,f)
+        File.file_write()
         print("종료합니다.")
         break
 
