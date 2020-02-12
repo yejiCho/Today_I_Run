@@ -372,3 +372,19 @@ strings = ["sun","bed","car"]
 print(strange_sort(strings, 1))
 
 ```
+
+# [프로그래머스 - 제일 작은 수 제거하기](https://programmers.co.kr/learn/courses/30/lessons/12935)
+
+```python
+# 1차 실패
+# arr가 비어있거다 [10]일경우 answer에 -1 append함
+# 아닐경우에는 arr역순으로 정렬해서 마지막값 제외하고 return
+def solution(arr):
+    answer = []
+    if not arr or arr[0] == 10:
+        answer.append(-1)
+    else:
+        answer = sorted(arr, reverse=True)[0:-1]
+    return answer
+
+```
