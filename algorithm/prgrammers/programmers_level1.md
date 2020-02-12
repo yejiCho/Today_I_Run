@@ -318,3 +318,22 @@ def solution(a, b):
 # print(datetime.date(2016,a,b).weekday()) => 1
 # print(datetime.date(2016,a,b)) => 2016-05-24
 ```
+
+# [프로그래머스 - 문자열 내림차순으로 배치하기]()
+
+```python
+def solution(s):
+    answers = []
+    answer = []
+    for i in range(len(sorted(s))):
+        if s[i].isupper():
+            answers.append(s[i])
+        else:
+            answer.append(s[i])
+    return "".join(sorted(answer, reverse=True) + sorted(answers,reverse=True))
+    
+def solution(s):
+    
+    return "".join(sorted(list(s),reverse = True))
+
+```
