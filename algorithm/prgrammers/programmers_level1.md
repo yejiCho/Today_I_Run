@@ -388,3 +388,28 @@ def solution(arr):
     return answer
 
 ```
+
+# [프로그래머스 - x만큼 간격이 있는 n개의 숫자](https://programmers.co.kr/learn/courses/30/lessons/12954)
+
+
+```python
+
+def solution(x, n):
+
+    return [x * (i+1) for i in range(n)]
+
+# 다른사람 풀이1
+def number_generator(x,n):
+
+    return [i*x+x for i in range(n)]
+
+print(number_generator(2,5))
+
+# 다른사람 풀이2
+def number_generator(x,n):
+
+    return [i for i in range(x, x*n+1, x)]
+
+print(number_generator(2,5))
+
+```
