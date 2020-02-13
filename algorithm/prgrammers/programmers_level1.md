@@ -413,3 +413,22 @@ def number_generator(x,n):
 print(number_generator(2,5))
 
 ```
+
+# [프로그래머스 - 제일 작은 수 제거하기](https://programmers.co.kr/learn/courses/30/lessons/12935)
+
+
+```python
+
+def solution(arr):
+    if arr[0] == 10 or []:
+        return [-1]
+    else:
+        del arr[arr.index(min(arr))]
+        return arr
+
+# 다른사람풀이
+def rm_small(mylist):
+    return  [i for i in mylist if i > min(mylist)]
+    #  제일 작은 수 보다 큰 것들은 return
+    
+```
