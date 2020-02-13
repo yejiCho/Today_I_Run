@@ -430,5 +430,28 @@ def solution(arr):
 def rm_small(mylist):
     return  [i for i in mylist if i > min(mylist)]
     #  제일 작은 수 보다 큰 것들은 return
+
+```
+
+# [프로그래머스 - 정수 제곱근 판별](https://programmers.co.kr/learn/courses/30/lessons/12934)
+
+```python
+
+import math
+def solution(n):
+    sqrt_n = int(math.sqrt(n))
+    if n == sqrt_n**2:
+        return  (sqrt_n+1)**2
+    else:
+        return -1
+
+# shotcoding
+import math
+def solution(n):
+    sqrt_n = int(math.sqrt(n))
+
+    return (sqrt_n+1)**2 if n == sqrt_n**2 else -1
     
+    
+
 ```
