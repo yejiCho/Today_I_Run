@@ -1,13 +1,7 @@
 from Contact import ContactProgram
 from Contact import main
-from Contact import File
-
-FILE_PATH = "contact.pickle"
-file = File(FILE_PATH)
-file_contact = file.get_contact()
 
 contact = ContactProgram()
-contact.set_all_contact(file_contact)
 
 while True:
     main()
@@ -21,8 +15,7 @@ while True:
     elif main_num == '4':
         contact.check_information("삭제")
     elif main_num == '5':
-        save_contact = contact.get_all_contact()
-        file.update_contact(save_contact)
+        print("프로그램 종료합니다.")
         break
     else:
         print("없는 번호입니다. 다시입력하세요.")

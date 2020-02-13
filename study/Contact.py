@@ -1,4 +1,4 @@
-import pickle
+import cx_Oracle as cxo
 
 
 class ContentError(Exception):
@@ -30,38 +30,21 @@ def main():
     """
     print(prompt)
 
-class File:
-    def __init__(self,file_name):
-        self.file = file_name
-
-    def get_contact(self):
-        public_info = {}
-        try:
-            with open(self.file,'rb') as f:
-                temp_dict = pickle.load(f)
-                public_info.update(temp_dict)
-        except FileNotFoundError:
-            print(f"{self.file}파일이 존재하지않습니다.")
-        return public_info
-
-    def update_contact(self, contact):
-        with open(self.file,'wb') as f:
-            pickle.dump(contact, f)
-            print(f"{self.file}파일을 생성합니다.")
-
-
 class ContactProgram:
     def __init__(self):
         self.public_information = {}
 
-    def set_all_contact(self, contact):
-        self.public_information = contact
-
-    def get_all_contact(self):
-        return self.public_information
+    # def set_all_contact(self, contact):
+    #     self.public_information = contact
+    #
+    # def get_all_contact(self):
+    #     return self.public_information
 
     # 1번. 연락처 정보등록
     def input_contact(self):
+        # conn = cxo.connect ("ora_user/1234@localhost:1521/xe")
+        # cursor = conn.cursor()
+        # sql = "insert into private values(:1,:2,:3)"
         print("등록할 회원의 정보를 입력하세요.")
         name = input("이름: ").strip()
         try:
@@ -93,25 +76,36 @@ class ContactProgram:
             self.public_information[private_information['phone_number']] = private_information
         else:
             print("정보가 없습니다.")
-        # return public_information
-
+        data = (name, phone_number, classification)
+        # cursor.execute(sql, data)
+        # cursor.close()
+        # conn.commit()
+        # conn.close()
         return private_information
 
 
     # 2번. 연락처 목록조회
     def member_list(self):
+        # conn = cxo.connect("system/1234@localhost:1521/xe")
+        # cursor = conn.cursor()
+        # sql = "select * from public"
+        # cursor.execute(sql)
 
+        for row in cursor:
+            print(cursor)
         print(f"총 {len(self.public_information)}명의 회원이 저장되어 있습니다.")
         for phone_key in self.public_information.keys():
             # print(phone_key)
             print(f"이름={self.public_information[phone_key]['name']},"
                     f"전화번호={self.public_information[phone_key]['phone_number']},"
                     f"구분={self.public_information[phone_key]['classification']}")
-
+        # cursor.close()
+        # conn.close()
 
     # 3,4번. 수정,삭제
     def check_information(self,correct_comment):
-
+        # conn = cxo.connect("system/1234@localhost:1521/xe")
+        # cursor = conn.cursor()
         input_name = input(f"{correct_comment}이름을 입력하세요.")
 
         keys = list(self.public_information.keys())
@@ -130,6 +124,7 @@ class ContactProgram:
 
         input_num = input(f"{correct_comment}할 번호를 입력하세요")
         del self.public_information[list_input_name[int(input_num)-1]]
+        # sql = "delete from public where "
         # print(public_information)
 
         if correct_comment == "삭제":
