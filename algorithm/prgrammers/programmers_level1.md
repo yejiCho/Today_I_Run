@@ -453,5 +453,30 @@ def solution(n):
     return (sqrt_n+1)**2 if n == sqrt_n**2 else -1
     
     
+```
+
+# [프로그래머스 - 최대공약수와 최소공배수](https://programmers.co.kr/learn/courses/30/lessons/12940)
+
+```python
+
+import math
+def solution(n, m):
+
+    return [math.gcd(n,m), n*m//math.gcd(n,m)]
+
+#  다른사람풀이
+#  유클리드 호제법
+
+def gcdlcm(a,b):
+    c,d = max(a,b), min(a,b)
+    t = 1
+    while t > 0:
+        t = c % d
+        c,d = d,b
+    answer = [c, int(a*b/c)]
+
+    return answer
+
+print(gcdlcm(3,12))
 
 ```
