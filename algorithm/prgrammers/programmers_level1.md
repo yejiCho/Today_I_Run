@@ -388,3 +388,28 @@ def solution(arr):
     return answer
 
 ```
+
+# [프로그래머스-이상한 문자 만들기](https://programmers.co.kr/learn/courses/30/lessons/12930)
+
+
+```python
+
+
+def solution(s):
+    answer = ''
+    answers = []
+    for char in s.split(" "):
+        idx = 0
+        for i in char:
+            if idx % 2 == 0:
+                answers.append(i.upper())
+            else:
+                answers.append(i.lower())
+            idx += 1
+        answers.append(" ")
+#     마지막 공백 제거  pop()
+    answers.pop()
+    return "".join(answers)
+
+
+```
