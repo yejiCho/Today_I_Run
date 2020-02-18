@@ -389,11 +389,16 @@ def solution(arr):
 
 ```
 
+<<<<<<< HEAD
 # [프로그래머스-이상한 문자 만들기](https://programmers.co.kr/learn/courses/30/lessons/12930)
+=======
+# [프로그래머스 - x만큼 간격이 있는 n개의 숫자](https://programmers.co.kr/learn/courses/30/lessons/12954)
+>>>>>>> 963b543f8520661016a6f1cbf090c11acc877265
 
 
 ```python
 
+<<<<<<< HEAD
 
 def solution(s):
     answer = ''
@@ -411,5 +416,91 @@ def solution(s):
     answers.pop()
     return "".join(answers)
 
+=======
+def solution(x, n):
+
+    return [x * (i+1) for i in range(n)]
+
+# 다른사람 풀이1
+def number_generator(x,n):
+
+    return [i*x+x for i in range(n)]
+
+print(number_generator(2,5))
+
+# 다른사람 풀이2
+def number_generator(x,n):
+
+    return [i for i in range(x, x*n+1, x)]
+
+print(number_generator(2,5))
+
+```
+
+# [프로그래머스 - 제일 작은 수 제거하기](https://programmers.co.kr/learn/courses/30/lessons/12935)
+
+
+```python
+
+def solution(arr):
+    if arr[0] == 10 or []:
+        return [-1]
+    else:
+        del arr[arr.index(min(arr))]
+        return arr
+
+# 다른사람풀이
+def rm_small(mylist):
+    return  [i for i in mylist if i > min(mylist)]
+    #  제일 작은 수 보다 큰 것들은 return
+
+```
+
+# [프로그래머스 - 정수 제곱근 판별](https://programmers.co.kr/learn/courses/30/lessons/12934)
+
+```python
+
+import math
+def solution(n):
+    sqrt_n = int(math.sqrt(n))
+    if n == sqrt_n**2:
+        return  (sqrt_n+1)**2
+    else:
+        return -1
+
+# shotcoding
+import math
+def solution(n):
+    sqrt_n = int(math.sqrt(n))
+
+    return (sqrt_n+1)**2 if n == sqrt_n**2 else -1
+    
+    
+```
+
+# [프로그래머스 - 최대공약수와 최소공배수](https://programmers.co.kr/learn/courses/30/lessons/12940)
+
+```python
+
+import math
+def solution(n, m):
+
+    return [math.gcd(n,m), n*m//math.gcd(n,m)]
+
+#  다른사람풀이
+#  유클리드 호제법
+
+def gcdlcm(a,b):
+    c,d = max(a,b), min(a,b)
+    t = 1
+    while t > 0:
+        t = c % d
+        c,d = d,b
+    answer = [c, int(a*b/c)]
+
+    return answer
+
+print(gcdlcm(3,12))
+>>>>>>> 963b543f8520661016a6f1cbf090c11acc877265
 
 ```
