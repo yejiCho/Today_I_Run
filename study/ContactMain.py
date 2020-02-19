@@ -12,6 +12,7 @@ contact_db = ContactDB(Contact_name)
 contact = ContactProgram()
 contact.set_all_contact(file_contact)
 
+contact_db.create_cls()
 
 while True:
     main()
@@ -22,6 +23,7 @@ while True:
         # pass
     elif main_num == '2':
         contact.member_list()
+        contact_db.select_db()
     elif main_num == '3':
         contact.check_information("수정")
     elif main_num == '4':
