@@ -12,6 +12,7 @@ contact_db = ContactDB(Contact_name)
 contact = ContactProgram()
 contact.set_all_contact(file_contact)
 
+contact_db.create_cls()
 
 while True:
     main()
