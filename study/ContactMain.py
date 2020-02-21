@@ -18,10 +18,11 @@ while True:
     main_num = input("번호를 입력하세요. ")
     if main_num == '1':
         private_info = contact.input_contact()
-        contact_db.input_db(private_info)
+        # contact_db.input_db(private_info)
         # pass
     elif main_num == '2':
         contact.member_list()
+        contact_db.select_db()
     elif main_num == '3':
         contact.check_information("수정")
     elif main_num == '4':
