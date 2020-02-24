@@ -1,60 +1,116 @@
+from DTO import DTO
 import cx_Oracle
 
-# class UserPath:
-    # conn = cx_Oracle.connect()
 
 class ContactDB:
-    def __init__(self,conn):
-        self.con_name = conn
-    def insert_db(self,private_info):
-        x = 0
+    def __init__(self):
+        self.con_name = 'ora_user/1234@localhost:1521/xe'
+
+    def all_info(self,sql):
         conn = cx_Oracle.connect(self.con_name)
         cursor = conn.cursor()
-        cls_sql = "insert into classification values(:1,:2)"
-        contact_sql = "insert into contact values(:1,:2,:3,:4,:5)"
-        # print(private_info)
-        # print(private_info[0])
-        if private_info[4] == '친구':
-            x = 1
-        elif private_info[4] == '가족':
-            x = 2
-        elif private_info[4] == '회사':
-            x = 3
-        elif private_info[4] == '기타':
-            x = 4
-        cls_data = [
-            x
-            ,private_info[4]
-        ]
-        print(cls_data)
-            
-        data = (
-            private_info[0]
-            ,private_info[1]
-            ,private_info[2]
-            ,private_info[3]
-            ,x
-        )
-        # print(data)
-        # 0, 조, 010, goe, 구분
-        cursor.execute(cls_sql,cls_data)
-        cursor.execute(contact_sql,data)
+        cursor.execute(sql)
+        data = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        return data
+    
+    def one_info(self,sql):
+        conn = cx_Oracle.connect(self.con_name)
+        cursor = conn.cursor()
+        cursor.execute(sql)
+        data = cursor.fetchone()
+        cursor.close()
+        conn.close()
+        return data
+
+    def commit_info(self,sql,data):
+        conn = cx_Oracle.connect(self.con_name)
+        cursor = conn.cursor()
+        cursor.execute(sql, data)
         cursor.close()
         conn.commit()
         conn.close()
-        # print(private_info)
-    
-    def select_db(self):
 
+# (id, name, phno, email, grpno)
+# (data,)
+    def commit(self,sql):
         conn = cx_Oracle.connect(self.con_name)
         cursor = conn.cursor()
-        sql = "SELECT * FROM contact"
         cursor.execute(sql)
-        rows = []
-        for row in cursor:
-            # print(row)
-            rows.append(row)
-        # print(rows)
         cursor.close()
+        conn.commit()
         conn.close()
-        return rows
+
+
+    def insert_db(self,dto: DTO()):
+        check_sql =  "select max(pri_num) from contact"
+        num = self.one_info(check_sql)
+        id = num[0]+1 if num[0] else 1
+        cls_sql = f"""SELECT cls_num
+                      FROM   classification
+                      WHERE   cls_name = '{dto.classification}'
+                    """
+        cls = self.one_info(cls_sql)
+        clsid = 0
+        if cls:
+            clsid = cls[0]        
+        else:
+            sql = "SELECT MAX(CLS_NUM) FROM classification"
+            num = self.one_info(sql)
+            clsid = num[0]+1 if num[0] else 1
+
+            sql = "INSERT INTO classification VALUES(:1,:2)"
+            data = (clsid, dto.classification)
+            self.commit_info(sql, data)
+        
+        
+        contact_sql = "INSERT INTO contact VALUES(:1,:2,:3,:4,:5)"
+        data = (id, dto.name, dto.phone_number, dto.email, clsid)
+        self.commit_info(contact_sql, data)
+
+
+    def select_db(self):
+        sql = """
+            SELECT contact.pri_num,contact.pri_name,contact.phone_num,contact.email,classification.cls_name
+            FROM   classification, contact
+            WHERE  classification.cls_num = contact.cls_num
+            """
+        all_info = self.all_info(sql)
+        
+        dto_list = [DTO(row[0], row[1], row[2], row[3], row[4]) 
+                    for row in all_info]  
+        return dto_list
+
+
+    def delete_db(self,dto):
+        input_name = dto
+        sql =f"""
+            SELECT contact.pri_num,contact.pri_name,contact.phone_num,contact.email,classification.cls_name
+            FROM   classification, contact
+            WHERE  classification.cls_num = contact.cls_num
+            AND    contact.pri_name = '{input_name}'
+            """
+        data = self.all_info(sql)
+        del_list = [DTO(row[0], row[1], row[2], row[3], row[4]) 
+                    for row in data]
+        return del_list
+    
+
+    def delete_model(self,dto):
+        input_id = dto.id
+        sql = f"""
+            DELETE FROM CONTACT
+            WHERE  PRI_NUM = '{input_id}'
+            """
+        self.commit(sql)
+
+    # def update_db(self,name):
+        # select * from contact;
+        # fectchall
+        # contact에 저장된 값 다뜸
+        # 구분나오는 함수 만들기 친구 , 가족, 기타
+        # PK값도 넣어줘야함 - 수정 삭제를 위해
+        # 중복되는 회원
+        # 이름으로 받음
+        # sql 문써서 fetchall dto 에또 넣어줌 그리고 리스트

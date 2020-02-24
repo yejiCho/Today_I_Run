@@ -1,26 +1,59 @@
-from View import main
-from View import insert_index
-from View import select_index
-from DB import ContactDB
+from View import View
+from DB import ContactDB 
+from DTO import DTO
 
-USERPATH = 'ora_user/1234@localhost:1521/xe'
+class Controller:
+    def __init__(self):
+        self.db = ContactDB()
+        self.View = View()
+        # self.dto = DTO()
 
-contact_db = ContactDB(USERPATH)
-
-while True:
-    main_num = main()
-
-    if main_num == '1':
-        private_info = insert_index()
-        contact_db.insert_db(private_info)
-    elif main_num == '2':
-        select_rows = contact_db.select_db()
-        select_index(select_rows)
-    # elif main_num == '3':
+    def execute(self):
+        while True:
+            main_num = self.View.main()
+            if main_num == '1':
+                self.add()
+            elif main_num == '2':
+                self.select()
+            elif main_num == '3':
+                self.update()
+            elif main_num == '4':
+                self.delete()
+            elif main_num == '5':
+                print("종료합니다.")
+                break
+            else:
+                print("없는 번호입니다. 다시 입력하세요.")
     
-    # elif main_num == '4':
+    def add(self):
+        dto = self.View.insert_index()
+        self.db.insert_db(dto)
+
+    def select(self):
+        dto_list = self.db.select_db()
+        self.View.select_index(dto_list)
+
+    def update(self):
+        dto = DTO()
+        name = self.View.input_name()
+        dto.name = name
+        del_list = self.db.delete_db(dto.name)
+        self.View.delete_index(del_list)
+        delete_name = self.View.find_index()
+        self.db.delete_model(del_list[delete_name - 1])
+        dto = self.View.insert_index()
+        self.db.insert_db(dto)
+
     
-    elif main_num == '5':
-        break
-    else:
-        print("없는 번호입니다. 다시 입력하세요.")
+    def delete(self):
+        dto = DTO()
+        name = self.View.input_name()
+        dto.name = name
+        del_list = self.db.delete_db(dto.name)
+        self.View.delete_index(del_list)
+        delete_name = self.View.find_index()
+        self.db.delete_model(del_list[delete_name - 1])
+
+
+controller = Controller()
+controller.execute()
