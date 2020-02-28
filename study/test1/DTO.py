@@ -46,13 +46,3 @@ class DTO:
     @classification.setter
     def classification(self,classification_txt):
         self._classification = classification_txt
-
-    # def list_dto(self):
-    #     return [self._id,self._name,self._phone_number,self._email,self._classification]
-    # dto = DTO()
-    # dto.name = 'lee'
-    # dto.phone_number = '0101'
-
-    # print(dto.name)
-    # print(dto.phone_number)
-        

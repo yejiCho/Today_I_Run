@@ -10,7 +10,12 @@
 
 ### PLAN
 
-#### django restframework
-##### [django_restframework_tutorial](https://www.django-rest-framework.org/)
+#### 학원 복습 매일
 
+#### fastcampus 완강하기!!
 
+#### Tech Interview
+
+#### django restframework[django_restframework_tutorial](https://www.django-rest-framework.org/)
+
+#### 자기소개서 써보기

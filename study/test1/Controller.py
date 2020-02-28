@@ -1,6 +1,7 @@
 from View import View
 from DB import ContactDB 
 from DTO import DTO
+import Error
 
 class Controller:
     def __init__(self):
@@ -27,8 +28,13 @@ class Controller:
     
     def add(self):
         dto = self.View.insert_index()
-        self.db.insert_db(dto)
-
+        email = dto.email
+        try:
+            email = Error.email_error(email)
+            self.db.insert_db(dto)
+        except Error.regex_exception as error_e:
+            return print(error_e)
+        
     def select(self):
         dto_list = self.db.select_db()
         self.View.select_index(dto_list)

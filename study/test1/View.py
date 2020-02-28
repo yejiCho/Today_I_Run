@@ -48,25 +48,6 @@ class View:
                 f" 전화번호:{dto.phone_number}"
                 f" 이메일:{dto.email}"
                 f" 구분:{dto.classification}")
-            
-        # print(list_dto)
-        # dto = select_rows
-        # print("test")
-        # print(dto)
-        # print(select_rows())
-        # for i+1 in range(len(select_rows)):
-        # contact_list=[row+1 for row in range(len(select_rows))]
-        
-        # print(f"총{len(contact_list)}명의 회원이 검색되었습니다.")
-        
-        # for i in select_rows:
-        #     print(f"번호:{i[0]} "
-        #           f" 이름:{i[1]}"
-        #           f" 전화번호:{i[2]}"
-        #           f" 이메일:{i[3]}"
-        #           f" 구분:{i[4]}")
-
-    # def update_db():
 
 
     def delete_index(self,del_list):
