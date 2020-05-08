@@ -20,6 +20,18 @@ machine : n1-highmem-16
 sudo yum update && sudo yum install wget
 
 sudo yum groupinstall "Development Tools"
+
+To disable selinux,
+ simply do a sudo vi /etc/sysconfig/selinux and set selinux=disabled 
+ and reboot the machine.
+
+sudo vim /etc/sysconfig/selinux
+
+selinux=disabled
+
+reboot
+
+
 ```
 
 
@@ -50,3 +62,5 @@ tcp: 7180
 http://<your public ip>:7180
 
 ```
+
+### cloudera manager 설치완료!
