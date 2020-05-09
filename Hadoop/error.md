@@ -26,3 +26,13 @@ $ sudo service ssh restart
 
 $ systemctl restart sshd.service #Centos7인 경우
 ```
+
+## 2. No route to host
+
+- curl http://localhost:7180/
+- curl: (7) Failed connect to localhost:7180; No route to host
+
+```
+iptables -F
+iptables -L
+```
