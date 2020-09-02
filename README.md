@@ -3,25 +3,11 @@
 ## 📚 GOAL
 
 ```
-
-하루 동안 공부한 내용 정리해서 commit하기
-
-```
-## 자격증 일정
-
-```
-컴퓨터활용능력 1급 실기 : 3월 22일
-Adsp : 4월 4일
+꾸준히 하는 것을 목표로 하자!
 ```
 
-### PLAN
+- 책 읽고 정리하기
 
-#### 학원 복습 매일
 
-#### fastcampus 완강하기!!
+- review 월 회고
 
-#### Tech Interview
-
-#### django restframework[django_restframework_tutorial](https://www.django-rest-framework.org/)
-
-#### 자기소개서 써보기
