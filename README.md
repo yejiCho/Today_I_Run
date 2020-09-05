@@ -26,3 +26,7 @@
 - 프로그래머스
 - Leetcode
 - baekjoon
+
+### 언급한 내용
+
+- [spring-boot-security](https://victorydntmd.tistory.com/328)
