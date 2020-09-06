@@ -30,3 +30,6 @@
 ### 언급한 내용
 
 - [spring-boot-security](https://victorydntmd.tistory.com/328)
+
+
+- [server port 0000 already in use](https://myblog.opendocs.co.kr/archives/1702)
