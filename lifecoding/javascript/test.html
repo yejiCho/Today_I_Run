@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+    <style type="text/css">
+        #selected{
+            color:red;
+        }
+        .dark{
+            background-color: black;
+            color:white;
+        }
+        .dark #selected{
+            color:yellow;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li id="selected">Javascript</li>
+    </ul>
+    <input type="button" onclick="document.body.className='dark'" value="dark"/>
+    <!-- <input type="button" onclick="alert('hello world')" value="Hello world"/> -->
+    <input type="button" id="hw" value="hello world"/>
+    <!-- <script>는 html문법 그 안의 코드는 javascript -->
+    <script type="text/javascript">
+        var hw = document.getElementById('hw');
+        hw.addEventListener('click', function(){
+            alert('hello world');
+        })
+
+    </script>
+</body>
+</html>
