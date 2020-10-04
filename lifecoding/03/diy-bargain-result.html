@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <html>
+        <input type="text" id="price"/>
+        <input type="text" id="rate" />
+        <button onclick="onclick=price()">할인 가격 계산하기</button>
+        <span id="showResult"></span>
+        <script>
+            function price(){
+                var originPrice = document.querySelector('#price').value;
+                var rate = document.querySelector('#rate').value;
+                if(originPrice && rate){
+                    var savedPrice = originPrice / rate;
+                    var resultPrice = originPrice - savedPrice;
+                    document.querySelector('#showResult').innerHTML = savedPrice + "," + resultPrice;
+                }
+
+            }
+        </script>
+    </html>
+</html>

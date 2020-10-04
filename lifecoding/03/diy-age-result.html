@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <div>
+            <button class="btn" onclick="calc()">나이 계산하기</button>
+            <span id="age"></span>
+        </div>
+        <script>
+            function calc(){
+                var year = 2020;
+                var birth = prompt("입력하세요","yyyy");
+                var age = year - birth + 1;
+                document.querySelector("#age").innerHTML = age;
+            }
+        </script>
+    </body>
+</html>
